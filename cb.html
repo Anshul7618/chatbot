@@ -1,0 +1,98 @@
+<html>
+<head>
+<title> ChatBot </title>
+<style type="text/css">
+*{
+margin : 0px;
+padding :0px;
+}
+body{
+width : 100vw;
+height : 100vh;
+display : grid;
+overflow : hidden;
+}
+#main{
+width : 100vw;
+max-width : 540px;
+height : 100vh;
+}
+#msg_area{
+height: 82%;
+padding : 0px 12px;
+overflow-y : scroll;
+scroll-behavior : smooth;
+}
+#input{
+height: 7%;
+min-height: 42px;
+display: grid;
+grid-template-columns: 70% 30%;
+margin: 8px 16px;
+border-radius: 32px;
+}
+#text{
+outline:none;
+font-size: 20px;
+background : lightgray;
+color : black;
+border : solid 1px black;
+border-radius: 32px;
+padding : 0px 16px;
+}
+#send{
+outline: none;
+font-size: 20px;
+background: darkblue;
+color: white;
+border-radius: 32px;
+margin : 0px 5px;
+border: 1px solid black;
+}
+#send:active{
+font-size: 16px;
+}
+h2{
+text-align : center;
+background-color : darkblue;
+color: white;
+padding : 10px;
+font-size : 30px;
+margin-bottom: 8px;
+}
+
+</style>
+<script type="text/javascript">
+know={
+"hlo" : "hii friend...!"
+};
+function talk() {
+var user = document.getElementById("text").value;
+document.getElementById("text").value="";
+document.getElementById("msg_area").innerHTML+= "<br>"+user +"<br>"+"<br>";
+document.getElementById("send").value;
+document.getElementById("send").value="";
+if(user in know)
+{
+document.getElementById("msg_area").innerHTML +=know[user]+"<br>";
+}
+else
+{
+document.getElementById("msg_area").innerHTML +="I Am Sorry I Don't Understand...<br> ";
+}
+}
+
+</script>
+</head>
+<body>
+<div id="main">
+<h2> * Chat Bot * </h2>
+<div id="msg_area">
+</div>
+<hr>
+<div id="input">
+<input type="text" placeholder="Type Something" id="text">
+<button id="send" onclick="talk()"> Send </button>
+</div>
+</div>
+</html>
